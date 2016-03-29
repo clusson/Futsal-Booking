@@ -17,10 +17,12 @@ require('./database')(config.postgresql, function(err, client){
 
   const domain = require('./domain')(client);
 
-  domain.UserRepository.findAll(function(err, users){
-
+  domain.UserRepository.getAll(function(err, users){
+  });
+  domain.UserRepository.dropTable(function(err, users){
   });
 });
+
 
 
 // register plugins
