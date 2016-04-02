@@ -18,7 +18,7 @@ require('./database')(config.postgresql, function(err, client){
 
   const domain = require('./domain')(client);
 
-  domain.UserRepository.createTable(function(err, users){
+  domain.UserRepository.dropTable(function(err, users){
 
   });
 });
