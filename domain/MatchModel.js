@@ -1,6 +1,8 @@
-module.exports = function(databaseClient){
+module.exports = function(databaseClient) {
 
-  return {
-
+  function MatchModel(row) {
+    this.name = row.name;
   }
+
+  return MatchModel;
 };

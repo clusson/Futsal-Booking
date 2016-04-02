@@ -9,6 +9,7 @@ server.connection({
 const logger = require('winston');
 const config = require('./config')(logger);
 
+
 require('./database')(config.postgresql, function(err, client){
   if(err){
     logger.error(err);
@@ -17,12 +18,10 @@ require('./database')(config.postgresql, function(err, client){
 
   const domain = require('./domain')(client);
 
-  domain.UserRepository.getAll(function(err, users){
-  });
-  domain.UserRepository.dropTable(function(err, users){
+  domain.UserRepository.createTable(function(err, users){
+
   });
 });
-
 
 
 // register plugins
