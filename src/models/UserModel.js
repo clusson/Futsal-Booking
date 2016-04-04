@@ -5,7 +5,6 @@ module.exports = function(databaseClient) {
 
   function UserModel(){
   	this.schema = {
-
   		firstname: Joi.string().max(255),
   		lastname: Joi.string().max(255),
   		email: Joi.string().max(255),

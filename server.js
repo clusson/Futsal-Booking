@@ -7,14 +7,15 @@ server.connection({
   port: 3000
 });
 const logger = require('winston');
-const config = require('./src/middleware/config')(logger);
+const config = require('./config')(logger);
 
 
-require('./src/middleware/database')(config.postgresql, function(err, client){
+require('./database')(config.postgresql, function(err, client){
   if(err){
     logger.error(err);
     throw err;
   }
+
 });
 
 

@@ -23,7 +23,7 @@ module.exports = function(databaseClient, MatchModel) {
     */
     createTable: function(f) {
       var query = databaseClient.query(`
-        CREATE TABLE users
+        CREATE TABLE matchs
         (
           id serial NOT NULL,
           date datetime,

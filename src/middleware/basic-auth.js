@@ -1,6 +1,6 @@
 "use strict";
 
-var UserModel = require('src/models/user');
+var UserModel = require('src/models/UserModel');
 var userRepository = require('src/repositories/UserRepository');
 var Joi = require('joi');
 

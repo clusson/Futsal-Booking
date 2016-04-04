@@ -1,7 +1,6 @@
 "use strict";
 
-var userController = require('src/controllers/user');
-var userValidate = require('validate/user');
+var userController = require('src/controllers/userController');
 
 module.exports = function() {
 	return [
@@ -9,40 +8,35 @@ module.exports = function() {
 			method: 'GET',
 			path: '/users/{user_id}',
 			config : {
-				handler: userController.findByID,
-				validate: userValidate.findByID
+				handler: userController.findByID
 			}
 		},
 		{
 			method: 'GET',
 			path: '/users',
 			config : {
-				handler: userController.find,
-				validate : userValidate.find
+				handler: userController.find
 			}
 		},
 		{
 			method: 'POST',
 			path: '/users',
 			config : {
-				handler : userController.insert,
-				validate : userValidate.insert
+				handler : userController.insert
 			}
 		},
 		{
 			method: 'PUT',
 			path: '/users/{user_id}',
 			config : {
-				handler: userController.update,
-				validate : userValidate.update
+				handler: userController.update
 			}
 		},
 		{
 			method: 'DELETE',
 			path: '/users/{user_id}',
 			config : {
-				handler: userController.delete,
-				validate : userValidate.delete
+				handler: userController.delete
 			}
 		}
 	];
