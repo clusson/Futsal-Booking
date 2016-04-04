@@ -11,6 +11,7 @@ module.exports = function(databaseClient) {
     this.name = row.name;
     this.date = row.date;
   }
+  
   UserModel.prototype.getMatchName = function() {
     return `${this.name}`;
   };
