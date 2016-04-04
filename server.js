@@ -7,20 +7,14 @@ server.connection({
   port: 3000
 });
 const logger = require('winston');
-const config = require('./config')(logger);
+const config = require('./src/middleware/config')(logger);
 
 
-require('./database')(config.postgresql, function(err, client){
+require('./src/middleware/database')(config.postgresql, function(err, client){
   if(err){
     logger.error(err);
     throw err;
   }
-
-  const domain = require('./domain')(client);
-
-  domain.UserRepository.dropTable(function(err, users){
-
-  });
 });
 
 

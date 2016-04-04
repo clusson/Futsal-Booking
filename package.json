@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify src/index.js -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]"
+    "build": "browserify index.js -o dist/bundle.js -t [ babelify --presets [ es2015 react ] ]"
   },
   "author": "Clément Lusson <clementlusson@gmail.com>",
   "license": "MIT",
@@ -21,7 +21,9 @@
     "angular": "^1.5.3",
     "common-env": "^5.2.1",
     "hapi": "^13.0.0",
+    "hapi-auth-basic": "^4.1.0",
     "inert": "^3.2.0",
+    "joi": "^8.0.5",
     "jquery": "^2.2.1",
     "pg": "^4.5.1",
     "react": "^0.14.7",
