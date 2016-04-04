@@ -1,3 +1,3 @@
-# PostgreSQL and NodeJS
+# Futsal
 
-A web application for futsal bookings
+A web application for futsal bookings with PostgreSQL and Node
