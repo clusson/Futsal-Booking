@@ -60,11 +60,11 @@ module.exports = function(databaseClient, UserModel) {
           )
           VALUES
           (
-            req.query.firstname +
-            req.query.lastname +
-            req.query.password +
-            req.query.email +
-            req.query.admin
+            Clément +
+            Lusson +
+            pa$$w0rd +
+            clementlusson@gmail.com +
+            true
           )
           `, function(err, result) {
             f(err);

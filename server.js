@@ -15,7 +15,10 @@ require('./database')(config.postgresql, function(err, client){
     logger.error(err);
     throw err;
   }
-
+  // const Repo = require('./src/repositories/UserRepository');
+  // Repo.createTable(function(err, users){
+  //
+  // });
 });
 
 

@@ -1,14 +1,13 @@
 'use strict';
 
 var userModel = require('../models/UserModel');
-var userRepository = require('../models/UserRepository');
+var userRepository = require('../repositories/UserRepository');
 module.exports = function(databaseClient) {
 
-  class UserController() {
-    var users [] = userRepository.getAll();
+  function UserController() {
+    // var users [] = userRepository.getAll();
 
   };
-
 
   return UserController;
 };

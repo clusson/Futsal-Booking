@@ -7,8 +7,4 @@ module.exports = function(databaseClient){
     UserRepository: require('./UserRepository')(databaseClient, UserModel)
   };
 
-
-
-
-
 };

@@ -1,6 +1,6 @@
 "use strict";
 
-var userController = require('src/controllers/userController');
+var userController = require('src/controllers/UserController');
 
 module.exports = function() {
 	return [
