@@ -12,7 +12,7 @@ module.exports = function(databaseClient) {
     this.date = row.date;
   }
 
-  UserModel.prototype.getPlayers = function() {
+  MatchModel.prototype.getPlayers = function() {
     return `${this.players}`;
   };
 

@@ -1,8 +1,10 @@
 "use strict";
 
-var userController = require('src/controllers/UserController');
 
-module.exports = function() {
+module.exports = function(domain, server) {
+  const userController = require('./controllers/UserController')(domain.UserRepository);
+
+
 	return [
 		{
 			method: 'GET',

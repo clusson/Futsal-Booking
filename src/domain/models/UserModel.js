@@ -1,5 +1,4 @@
-const ReactDOM = require('react-dom');
-const React = require('react');
+const Joi = require('Joi');
 
 module.exports = function(databaseClient) {
 
