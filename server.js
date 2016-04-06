@@ -22,7 +22,12 @@ require('./database')(config.postgresql, function(err, client){
 
   const domain = require('./src/domain')(client);
 
-
+  // domain.UserRepository.createTable(function(err, users){
+  //   console.log("Table users créé");
+  // });
+  domain.MatchRepository.createTable(function(err, matchs){
+    console.log("Table matchs créé");
+  });
 
   // setup routes
   server.route({
@@ -37,11 +42,7 @@ require('./database')(config.postgresql, function(err, client){
 
 
   const routes = require('./src/routes')(domain, server);
-  // const Repo = require('./src/repositories/UserRepository');
-  // Repo.createTable(function(err, users){
-  //
-  // });
-  //
+
 
   // listen
   server.start((err) => {

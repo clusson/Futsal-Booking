@@ -6,7 +6,7 @@ module.exports = function(databaseClient, MatchModel) {
     * @param  {function} f(err, users), users=Array[MatchModel]
     */
     getAll: function(f) {
-      var query = databaseClient.query(`SELECT * FROM users`, function(err, result) {
+      var query = databaseClient.query(`SELECT * FROM matchs`, function(err, result) {
         if (err) {
           return f(err);
         }
@@ -23,13 +23,14 @@ module.exports = function(databaseClient, MatchModel) {
     */
     createTable: function(f) {
       var query = databaseClient.query(`
-        CREATE TABLE matchs
+        CREATE TABLE IF NOT EXISTS matchs
         (
           id serial NOT NULL,
-          date datetime,
+          date timestamp,
           players int,
+          PRIMARY KEY ("id")
         )
-        `,  function(err, result) {
+        `, function(err, result) {
           f(err);
         });
       },

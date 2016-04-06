@@ -1,3 +1,5 @@
+const Joi = require('Joi');
+
 module.exports = function(databaseClient) {
 
   function MatchModel(){
