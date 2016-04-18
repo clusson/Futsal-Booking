@@ -3,42 +3,47 @@
 
 module.exports = function(domain, server) {
   const userController = require('./controllers/UserController')(domain.UserRepository);
-
-
 	return [
 		{
 			method: 'GET',
 			path: '/users/{user_id}',
 			config : {
-				handler: userController.findByID
+				handler: UserController.findByID
 			}
 		},
 		{
 			method: 'GET',
 			path: '/users',
 			config : {
-				handler: userController.find
+				handler: UserController.find
 			}
 		},
 		{
 			method: 'POST',
 			path: '/users',
 			config : {
-				handler : userController.insert
+				handler : UserController.insert
 			}
 		},
 		{
-			method: 'PUT',
+			method: 'GET',
 			path: '/users/{user_id}',
 			config : {
-				handler: userController.update
+				handler: UserController.update
 			}
 		},
+    {
+      method: 'POST',
+      path: '/users/{user_id}',
+      config : {
+        handler: UserController.updateSave
+      }
+    },
 		{
 			method: 'DELETE',
 			path: '/users/{user_id}',
 			config : {
-				handler: userController.delete
+				handler: UserController.delete
 			}
 		}
 	];

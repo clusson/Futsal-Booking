@@ -25,9 +25,9 @@ require('./database')(config.postgresql, function(err, client){
   // domain.UserRepository.createTable(function(err, users){
   //   console.log("Table users créé");
   // });
-  domain.MatchRepository.createTable(function(err, matchs){
-    console.log("Table matchs créé");
-  });
+  // domain.MatchRepository.createTable(function(err, matchs){
+  //   console.log("Table matchs créé");
+  // });
 
   // setup routes
   server.route({

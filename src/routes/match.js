@@ -1,6 +1,5 @@
 "use strict";
 
-
 module.exports = function(domain, server) {
   const matchController = require('./controllers/MatchController')(domain.matchRepository);
 
@@ -10,35 +9,35 @@ module.exports = function(domain, server) {
 			method: 'GET',
 			path: '/matchs/{match_id}',
 			config : {
-				handler: matchController.findByID
+				handler: MatchController.findByID
 			}
 		},
 		{
 			method: 'GET',
 			path: '/matchs',
 			config : {
-				handler: matchController.find
+				handler: MatchController.find
 			}
 		},
 		{
 			method: 'POST',
 			path: '/matchs',
 			config : {
-				handler : matchController.insert
+				handler : MatchController.insert
 			}
 		},
 		{
 			method: 'PUT',
 			path: '/matchs/{match_id}',
 			config : {
-				handler: matchController.update
+				handler: MatchController.update
 			}
 		},
 		{
 			method: 'DELETE',
 			path: '/matchs/{match_id}',
 			config : {
-				handler: matchController.delete
+				handler: MatchController.delete
 			}
 		}
 	];
