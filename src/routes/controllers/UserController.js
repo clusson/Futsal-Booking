@@ -1,7 +1,5 @@
 'use strict';
 
-angular.module('Futsal', []);
-
 
 var userModel = require('../models/UserModel');
 var userRepository = require('../repositories/UserRepository');
