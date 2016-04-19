@@ -14,15 +14,11 @@
 <body>
   <script src="/bundle.js" type="text/javascript"></script>
   <script src="UserController.js"></script>
-  
-  <div class="col-sm-8" ng-controller="UserController as userCtrl">
-    <button type="button" class="btn btn-primary" name="button" ng-click="userCtrl.adduser()">Add user</button>
 
-    <div class="panel panel-default" ng-repeat="user in userCtrl.displayedUsers">
-      <div class="panel-heading">
-        <h3 class="panel-title"><a ng-click="userCtrl.open(user)">{{user.email}}</a></h3>
-      </div>
-    </div>
+  <div ng-controller="UserController as userCtrl">
+    <p>{{userCtrl.lastName}}, {{userCtrl.firstName}}</p>
+    <button type="button" class="btn btn-primary" name="button" ng-click="userCtrl.adduser()">Add user</button>
   </div>
+
 </body>
 </html>
