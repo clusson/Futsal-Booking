@@ -2,8 +2,6 @@
 
 module.exports = function(domain, server) {
   const matchController = require('./controllers/MatchController')(domain.matchRepository);
-
-
 	return [
 		{
 			method: 'GET',

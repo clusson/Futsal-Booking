@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify index.js -o dist/bundle.js -t"
+    "build": "browserify client.js -o dist/bundle.js -t"
   },
   "author": "Clément Lusson <clementlusson@gmail.com>",
   "license": "MIT",

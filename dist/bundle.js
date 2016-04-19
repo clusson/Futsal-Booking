@@ -1,9 +1,11 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-const $ = require('jquery');
-const angular = require('angular');
-const bootstrap = require('bootstrap');
+window.jQuery = window.$ = require('jquery');
+angular = require('angular');
+bootstrap = require('bootstrap');
 
-},{"angular":3,"bootstrap":4,"jquery":17}],2:[function(require,module,exports){
+require('./src/client')($, angular, bootstrap);
+
+},{"./src/client":20,"angular":3,"bootstrap":4,"jquery":17}],2:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.5
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -33250,7 +33252,7 @@ require('../../js/affix.js')
 
 },{}],17:[function(require,module,exports){
 /*!
- * jQuery JavaScript Library v2.2.2
+ * jQuery JavaScript Library v2.2.3
  * http://jquery.com/
  *
  * Includes Sizzle.js
@@ -33260,7 +33262,7 @@ require('../../js/affix.js')
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2016-03-17T17:51Z
+ * Date: 2016-04-05T19:26Z
  */
 
 (function( global, factory ) {
@@ -33316,7 +33318,7 @@ var support = {};
 
 
 var
-	version = "2.2.2",
+	version = "2.2.3",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -42726,7 +42728,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		// If it fails, this function gets "jqXHR", "status", "error"
 		} ).always( callback && function( jqXHR, status ) {
 			self.each( function() {
-				callback.apply( self, response || [ jqXHR.responseText, status, jqXHR ] );
+				callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
 			} );
 		} );
 	}
@@ -43092,4 +43094,36 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}]},{},[1]);
+},{}],18:[function(require,module,exports){
+module.exports = function(angular) {
+  angular
+    .module('Futsal')
+    .controller('UserController', function($scope, $http) {
+      $scope.users = [];
+
+      $http.get('/users')
+        .success(function(users) {
+          $scope.users = users;
+          console.log(users);
+        })
+        .error(function(data) {
+          $scope.users = [];
+          console.log('Error: ' + data);
+        });
+
+    });
+
+};
+
+},{}],19:[function(require,module,exports){
+module.exports = function(angular){
+  angular.module('Futsal', []);
+}
+
+},{}],20:[function(require,module,exports){
+module.exports = function($, angular, bootstrap){
+  require('./app')(angular);
+  require('./UserController')(angular);
+};
+
+},{"./UserController":18,"./app":19}]},{},[1]);

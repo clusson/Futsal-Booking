@@ -20,7 +20,7 @@ require('./database')(config.postgresql, function(err, client){
     throw err;
   }
 
-  const domain = require('./src/domain')(client);
+  const domain = require('./src/server/domain')(client);
 
   // domain.UserRepository.createTable(function(err, users){
   //   console.log("Table users créé");
@@ -41,7 +41,15 @@ require('./database')(config.postgresql, function(err, client){
   });
 
 
-  const routes = require('./src/routes')(domain, server);
+  // const routes = require('./src/server/routes')(domain, server);
+  //
+  server.route({
+    method: 'GET',
+    path: '/users',
+    handler: function(request, reply){
+      return reply([1, 2, 3]);
+    }
+  })
 
 
   // listen
