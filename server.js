@@ -42,7 +42,7 @@ require('./database')(config.postgresql, function(err, client){
 
 
   // const routes = require('./src/server/routes')(domain, server);
-  //
+
   server.route({
     method: 'GET',
     path: '/users',

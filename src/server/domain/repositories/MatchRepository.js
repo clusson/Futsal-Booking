@@ -2,8 +2,8 @@ module.exports = function(databaseClient, MatchModel) {
   return {
 
     /**
-    * Yield every users
-    * @param  {function} f(err, users), users=Array[MatchModel]
+    * Yield every matchs
+    * @param  {function} f(err, matchs), matchs=Array[MatchModel]
     */
     getAll: function(f) {
       var query = databaseClient.query(`SELECT * FROM matchs`, function(err, result) {

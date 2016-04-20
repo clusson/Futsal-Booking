@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(domain, server) {
-  const matchController = require('./controllers/MatchController')(domain.matchRepository);
+  const matchController = require('./controllers/MatchController')(domain.MatchRepository);
 	return [
 		{
 			method: 'GET',
