@@ -3,7 +3,7 @@
 module.exports = function(MatchRepository) {
 
   return {
-    remove: function(req, res) {
+    remove: function remove(req, res) {
       MatchRepository.remove(req.params.id, function(err, match) {
         if (!err) {
           match.remove();
@@ -13,7 +13,7 @@ module.exports = function(MatchRepository) {
       });
     },
 
-    findAll: function(req, res) {
+    find: function find(req, res) {
       MatchRepository.find().done(function(err, matchs) {
         if (err) {
           res.send(400);
@@ -23,7 +23,7 @@ module.exports = function(MatchRepository) {
       });
     },
 
-    findByName: function(req, res) {
+    findByName: function fndByName(req, res) {
       var name = req.param('name');
       MatchRepository.findByName(name).done(function(err, matchs) {
         if (err) {
@@ -34,7 +34,7 @@ module.exports = function(MatchRepository) {
       });
     },
 
-    update: function(req, res) {
+    update: function update(req, res) {
       MatchRepository.findOneById(req.param('id')).exec(function(err, match) {
         res.view({
           match: match
@@ -42,11 +42,10 @@ module.exports = function(MatchRepository) {
       });
     },
 
-    updateSave: function(req, res) {
+    updateSave: function updateSave(req, res) {
       var match = req.params.all();
       // save match data
       res.redirect('/match/saved');
     }
   };
-
 };

@@ -9,7 +9,6 @@ module.exports = function(databaseClient, UserModel) {
         if (err) {
           return f(err);
         }
-
         f(null, result.rows.map(function(row) {
           return new UserModel(row);
         }));
@@ -53,22 +52,20 @@ module.exports = function(databaseClient, UserModel) {
           INSERT INTO users
           (
             firstname,
-            lastName,
+            lastname,
             email,
             password,
             admin
           )
           VALUES
           (
-            Clément +
-            Lusson +
-            pa$$w0rd +
-            clementlusson@gmail.com +
-            true
+            "Clement",
+            "Lusson",
+            "pa$$w0rd",
+            "clementlusson@gmail.com",
+            "true"
           )
-          `, function(err, result) {
-            f(err);
-          });
+          `);
         },
 
         delete: function(userModel) {

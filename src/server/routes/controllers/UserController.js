@@ -1,50 +1,51 @@
 'use strict';
 
-var userModel = require('../models/UserModel');
-var userRepository = require('../repositories/UserRepository');
+module.exports = function(UserRepository) {
 
-module.exports = function(databaseClient) {
+  return {
+    remove: function remove(req, res) {
+      UserRepository.remove(req.params.id, function(err, user) {
+        if (!err) {
+          user.remove();
+          res.status(200)
+          res.end();
+        }
+      });
+    },
 
-  findAll: function (req, res) {
-    User.find().done(function (err, users) {
-      if (err) {
-        res.send(400);
-      } else {
-        res.send(users);
-      }
-    });
-  },
+    find: function find(req, res) {
+      UserRepository.getAll().done(function(err, users) {
+        if (err) {
+          res.send(400);
+        } else {
+          res.send(users);
+        }
+      });
+    },
 
-  findById: function(req, res) {
-    var name = req.param('id');
-    User.findById(id).done(function (err, users) {
-      if (err) {
-        res.send(400);
-      } else {
-        res.send(users);
-      }
-    });
-  },
+    findByName: function fndByName(req, res) {
+      var name = req.param('name');
+      UserRepository.findByName(name).done(function(err, users) {
+        if (err) {
+          res.send(400);
+        } else {
+          res.send(users);
+        }
+      });
+    },
 
-  update: function(req, res) {
-    User.findOneById(req.param('id')).exec(function(err, user){
-      res.view({ user: user });
-    });
-  },
+    update: function update(req, res) {
+      UserRepository.findOneById(req.param('id')).exec(function(err, user) {
+        res.view({
+          user: user
+        });
+      });
+    },
 
-  updateSave: function(req, res) {
-    var user = req.params.all();
-    // save user data
-    res.redirect('/user/saved');
-  }
-
-  function remove(req, res){
-    userHelper.remove(req.params.id, function(err, user){
-      if(!err){
-        user.remove();
-        res.status(200)
-        res.end();
-      }
-    })
-  }
+    updateSave: function updateSave(req, res) {
+      var user = req.params.all();
+      // save user data
+      res.redirect('/user/saved');
+    }
+  };
 };

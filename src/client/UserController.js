@@ -13,6 +13,22 @@ module.exports = function(angular) {
       $scope.users = [];
       console.log('Error: ' + data);
     });
-  });
 
+
+    $scope.updateUser = function(){
+      $('.btn-save').button('loading');
+      $scope.saveUser();
+    }
+
+    $scope.editUser = function(user){
+      $scope.tempUser = {
+        id: user.id,
+        firstname : user.firstname,
+        lastname : user.lastname,
+        email : user.email
+      };
+      $scope.editMode = true;
+      $scope.index = $scope.post.users.indexOf(user);
+    }
+  });
 };
